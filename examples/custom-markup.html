@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="stylesheets/folder-tree.css" rel="stylesheet">
+    <link href="stylesheets/font-awesome.3.2.1.min.css" rel="stylesheet">
+  </head>
+  <body>
+
+    <h3>Example 1</h3>
+    <pre>
+      app
+        assets
+          images
+          javascripts
+          stylesheets
+        controllers
+          concerns
+        helpers
+        mailers
+        models
+          concerns
+        views
+          layouts
+          pages
+          visitors
+      bin
+      config
+        environments
+        initializers
+        locales
+    </pre>
+
+    <h2>Example 2</h2>
+    <pre>
+      config.yml
+      data.yml
+      _root
+        index.md
+        about.md
+        random-folder
+      compiled
+      dash
+        index.html
+      media
+        my-hockey-stick-graph.jpg
+      partials
+        pages_list.html
+        pages_collate.html
+      plugins
+        kramdown.rb
+        tag_cloud.rb
+      posts
+        open-source-is-good.md
+        hello-world.md
+        drafts
+          untitled-draft.md
+
+      theme-twitter
+        javascripts
+        layouts
+          default.html
+          page.html
+          post.html
+        media
+        partials
+          posts_collate.html
+        stylesheets
+          default.css
+          style.css
+
+      widgets
+        some_widget_name
+          some-snippet.html
+          alternate-snippet.html
+          javascripts
+            some-script.js
+    </pre>
+
+    <h3>Example 3</h3>
+    <pre>
+      one
+        two
+          three
+            four
+              five
+                six
+                  seven
+                    eight
+                      nine
+                        ten
+                          yay.html
+    </pre>
+
+    <script src="../folder-tree.js"></script>
+    <script>
+      var elements = document.getElementsByClassName('folder-tree'),
+          length = elements.length;
+
+      for (var i = length - 1; i >= 0; --i) {
+        var node = elements[i],
+            container = document.createElement('span');
+
+        container.innerHTML = folderTree(node.innerHTML, {
+          name: function(node) {
+            return '(' + node.name + ')......  <i class="icon-smile"></i>';
+          },
+          icon : function(node) {
+            return node.children
+                ? '<i class="icon-long-arrow-right"></i> <i class="icon-folder-close"></i>'
+                : '<i class="icon-file-text"></i>';
+
+          }
+        });
+
+        node.parentNode.replaceChild(container.firstChild, node);
+      }
+    </script>
+  </body>
+</html>

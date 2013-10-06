@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+
+    <h3>Example 1</h3>
+    <pre class="folder-tree">
+      app
+        assets
+          images
+          javascripts
+          stylesheets
+        controllers
+          concerns
+        helpers
+        mailers
+        models
+          concerns
+        views
+          layouts
+          pages
+          visitors
+      bin
+      config
+        environments
+        initializers
+        locales
+    </pre>
+
+    <h2>Example 2</h2>
+    <pre class="folder-tree">
+      config.yml
+      data.yml
+      _root
+        index.md
+        about.md
+        random-folder
+      compiled
+      dash
+        index.html
+      media
+        my-hockey-stick-graph.jpg
+      partials
+        pages_list.html
+        pages_collate.html
+      plugins
+        kramdown.rb
+        tag_cloud.rb
+      posts
+        open-source-is-good.md
+        hello-world.md
+        drafts
+          untitled-draft.md
+
+      theme-twitter
+        javascripts
+        layouts
+          default.html
+          page.html
+          post.html
+        media
+        partials
+          posts_collate.html
+        stylesheets
+          default.css
+          style.css
+
+      widgets
+        some_widget_name
+          some-snippet.html
+          alternate-snippet.html
+          javascripts
+            some-script.js
+    </pre>
+
+    <h3>Example 3</h3>
+    <pre class="folder-tree">
+      one
+        two
+          three
+            four
+              five
+                six
+                  seven
+                    eight
+                      nine
+                        ten
+                          yay.html
+    </pre>
+
+    <script src="../folder-tree.js"></script>
+    <script>
+      var elements = document.getElementsByClassName('folder-tree'),
+          length = elements.length;
+
+      for (var i = length - 1; i >= 0; --i) {
+        var node = elements[i],
+            container = document.createElement('span');
+        container.innerHTML = folderTree(node.innerHTML);
+
+        node.parentNode.replaceChild(container.firstChild, node);
+      }
+    </script>
+  </body>
+</html>
